@@ -33,6 +33,14 @@ def main():
             sprite.draw(screen)
         for sprite in updatable:
             sprite.update(dt)
+
+        for coll in asteroids:
+            if coll.collisions(player):
+                print("Game Over!")
+                pygame.QUIT
+                return
+
+
         pygame.display.flip()
        
         # limit framerate to 60 fps
